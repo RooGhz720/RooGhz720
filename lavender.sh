@@ -153,8 +153,6 @@ KOMIT=$(git log --pretty=format:'"%h : %s"' -1)
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 export IMG="$MY_DIR"/out/arch/arm64/boot/Image.gz-dtb
-export dtbo="$MY_DIR"/out/arch/arm64/boot/dtbo.img
-export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
 
 
         if [ -f "$IMG" ]; then
@@ -190,8 +188,6 @@ TEXT1="
                 git clone --depth=1 "$AnyKernel" --single-branch -b "$AnyKernelbranch" zip
                 echo -e "$yellow << making kernel zip >> \n $white"
                 cp -r "$IMG" zip/
-                cp -r "$dtbo" zip/
-                cp -r "$dtb" zip/
                 cd zip
                 export ZIP="$KERNEL_NAME"-"$TYPE"-"$TGL"
                 zip -r9 "$ZIP" * -x .git README.md LICENSE *placeholder
