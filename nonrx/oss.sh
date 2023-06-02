@@ -56,9 +56,9 @@ MESIN="Git Workflows"
 
 # clang config
 REMOTE="https://gitlab.com"
-TARGET="RooGhz720"
-REPO="android_prebuilts_clang_host_linux-x86_clang-r487747b"
-BRANCH="master"
+TARGET="varunhardgamer"
+REPO="trb_clang"
+BRANCH="16"
 
 # setup telegram env
 export WAKTU=$(date +"%T")
