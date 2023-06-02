@@ -54,7 +54,7 @@ echo "varint no ln8000 oss"
 sleep 2
 
 # Kernel build config
-TYPE="OSS-BQ"
+TYPE="BQ"
 KERNEL_NAME="AGHISNA"
 DEVICE="Redmi note 10 pro"
 DEFCONFIG="sweet_defconfig"
