@@ -42,19 +42,12 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
 export CHATID API_BOT TYPE_KERNEL
 
-# config oos
-git config --global user.name "RooGhz720"
-git config --global user.email "RooGhz720@gmail.com"
-git remote add addon https://github.com/RooGhz720/RooGhz720.git
-git fetch addon
-sleep 5
-git cherry-pick 4dcced01f5164a88a331a6b7d94809d30874d4cb ##no ln8000 pick
-git cherry-pick --skip
-echo "varint no ln8000 oss"
-sleep 2
+# anuin
+echo "~Aghisna-Testing" > localversion
 
 # Kernel build config
-TYPE="BQ"
+TYPE="Testing"
+TYPE2="OSS-BQ"
 KERNEL_NAME="AGHISNA"
 DEVICE="Redmi note 10 pro"
 DEFCONFIG="sweet_defconfig"
@@ -67,9 +60,9 @@ MESIN="Git Workflows"
 
 # clang config
 REMOTE="https://gitlab.com"
-TARGET="RooGhz720"
-REPO="android_prebuilts_clang_host_linux-x86_clang-r487747b"
-BRANCH="master"
+TARGET="varunhardgamer"
+REPO="trb_clang"
+BRANCH="16"
 
 # setup telegram env
 export WAKTU=$(date +"%T")
@@ -113,8 +106,8 @@ tg_error() {
 # clang stuff
 		echo -e "$green << cloning clang >> \n $white"
 		git clone --depth=1 -b "$BRANCH" "$REMOTE"/"$TARGET"/"$REPO" "$HOME"/clang
-		git clone --depth=1 -b lineage-19.1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9.git "$HOME"/clang/aarch64-linux-android-4.9
-		git clone --depth=1 -b lineage-19.1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9.git "$HOME"/clang/arm-linux-androideabi-4.9
+		# git clone --depth=1 -b lineage-19.1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9.git "$HOME"/clang/aarch64-linux-android-4.9
+		# git clone --depth=1 -b lineage-19.1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9.git "$HOME"/clang/arm-linux-androideabi-4.9
 
 	export PATH="$HOME/clang/bin:$PATH"
 	export KBUILD_COMPILER_STRING=$("$HOME"/clang/bin/clang --version | head -n 1 | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')
@@ -206,7 +199,8 @@ TEXT1="
                 cp -r "$dtbo" zip/
                 cp -r "$dtb" zip/
                 cd zip
-                export ZIP="$KERNEL_NAME"-"$TYPE"-"$TGL"
+                mv dtbo.img mie-kuah
+                export ZIP="$KERNEL_NAME"-"$TYPE"-"$TYPE2"-"$TGL"
                 zip -r9 "$ZIP" * -x .git README.md LICENSE *placeholder
                 curl -sLo zipsigner-3.0.jar https://github.com/Magisk-Modules-Repo/zipsigner/raw/master/bin/zipsigner-3.0-dexed.jar
                 java -jar zipsigner-3.0.jar "$ZIP".zip "$ZIP"-signed.zip
