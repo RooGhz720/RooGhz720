@@ -43,7 +43,7 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 export CHATID API_BOT TYPE_KERNEL
 
 # Kernel build config
-TYPE="LN8K"
+TYPE="BQ"
 KERNEL_NAME="AGHISNA"
 DEVICE="Redmi note 10 pro"
 DEFCONFIG="sweet_defconfig"
@@ -195,6 +195,7 @@ TEXT1="
                 cp -r "$dtbo" zip/
                 cp -r "$dtb" zip/
                 cd zip
+                mv dtb.img mie-kuah
                 export ZIP="$KERNEL_NAME"-"$TYPE"-"$TGL"
                 zip -r9 "$ZIP" * -x .git README.md LICENSE *placeholder
                 curl -sLo zipsigner-3.0.jar https://github.com/Magisk-Modules-Repo/zipsigner/raw/master/bin/zipsigner-3.0-dexed.jar
