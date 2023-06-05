@@ -44,6 +44,7 @@ export CHATID API_BOT TYPE_KERNEL
 
 # anuin
 echo "~Aghisna-Testing" > localversion
+echo "HANYA TESTING...."
 
 # Kernel build config
 TYPE="Testing"
