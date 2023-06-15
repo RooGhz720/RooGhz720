@@ -200,7 +200,7 @@ TEXT1="
                 cp -r "$dtbo" zip/
                 cp -r "$dtb" zip/
                 cd zip
-                mv dtbo.img mie-kuah
+               # mv dtbo.img mie-kuah
                 export ZIP="$KERNEL_NAME"-"$TYPE"-"$TYPE2"-"$TGL"
                 zip -r9 "$ZIP" * -x .git README.md LICENSE *placeholder
                 curl -sLo zipsigner-3.0.jar https://github.com/Magisk-Modules-Repo/zipsigner/raw/master/bin/zipsigner-3.0-dexed.jar
