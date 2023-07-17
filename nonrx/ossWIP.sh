@@ -44,7 +44,7 @@ export CHATID API_BOT TYPE_KERNEL
 
 # Kernel build config
 TYPE="OSS-BQ"
-KERNEL_NAME="AGHISNA"
+KERNEL_NAME="AGHISNA-WIP"
 DEVICE="Redmi note 10 pro"
 DEFCONFIG="sweet_defconfig"
 AnyKernel="https://github.com/RooGhz720/Anykernel3"
@@ -203,7 +203,7 @@ TEXT1="
                 java -jar zipsigner-3.0.jar "$ZIP".zip "$ZIP"-signed.zip
                 tg_sticker "CAACAgUAAxkBAAGLlS1jnv1FJAsPoU7-iyZf75TIIbD0MQACYQIAAvlQCFTxT3DFijW-FSwE"
                 tg_post_msg "$TEXT1" "$CHATID"
-                tg_post_build "$ZIP"-Stagging.zip "$CHATID"
+                tg_post_build "$ZIP"-signed.zip "$CHATID"
                 cd ..
                 rm -rf error.log
                 rm -rf out
