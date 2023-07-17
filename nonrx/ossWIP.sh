@@ -56,9 +56,9 @@ MESIN="Git Workflows"
 
 # clang config
 REMOTE="https://gitlab.com"
-TARGET="varunhardgamer"
-REPO="trb_clang"
-BRANCH="16"
+TARGET="GhostMaster69-dev"
+REPO="cosmic-clang"
+BRANCH="master"
 
 # setup telegram env
 export WAKTU=$(date +"%T")
@@ -155,6 +155,8 @@ KERVER=$(make kernelversion)
 KOMIT=$(git log --pretty=format:'"%h : %s"' -1)
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
+find $MY_DIR/out/arch/arm64/boot/dts/ -name '*.dtb' -exec cat {} + > $MY_DIR/out/arch/arm64/boot/dtb.img
+ls $MY_DIR/out/arch/arm64/boot
 export IMG="$MY_DIR"/out/arch/arm64/boot/Image.gz-dtb
 export dtbo="$MY_DIR"/out/arch/arm64/boot/dtbo.img
 export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
