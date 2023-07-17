@@ -148,14 +148,13 @@ make "$DEFCONFIG" O=out
 
 echo -e "$yellow << compiling the kernel >> \n $white"
 
-build_kernel || error=true
+build_kernel || error=false
 
 DATE=$(date +"%Y%m%d-%H%M%S")
 KERVER=$(make kernelversion)
 KOMIT=$(git log --pretty=format:'"%h : %s"' -1)
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
-find $MY_DIR/out/arch/arm64/boot/dts/ -name '*.dtb' -exec cat {} + > $MY_DIR/out/arch/arm64/boot/dtb.img
 ls $MY_DIR/out/arch/arm64/boot
 export IMG="$MY_DIR"/out/arch/arm64/boot/Image.gz-dtb
 export dtbo="$MY_DIR"/out/arch/arm64/boot/dtbo.img
