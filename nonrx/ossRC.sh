@@ -48,7 +48,7 @@ echo "Update Migguan...."
 
 # Kernel build config
 TYPE="Testing"
-TYPE2="OSS-BQ"
+TYPE="[OSS][BQ]"
 KERNEL_NAME="AGHISNA"
 DEVICE="Redmi note 10 pro"
 DEFCONFIG="sweet_defconfig"
