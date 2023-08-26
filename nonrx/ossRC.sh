@@ -43,7 +43,7 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 export CHATID API_BOT TYPE_KERNEL
 
 # anuin
-echo "~Aghisna-Weekly" > localversion
+echo "~AGHISNA-Weakly-X1.5" > localversion
 echo "Update Migguan...."
 
 # Kernel build config
