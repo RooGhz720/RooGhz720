@@ -46,7 +46,7 @@ export CHATID API_BOT TYPE_KERNEL
 TYPE="[AOSP]"
 KERNEL_NAME="AGHISNA"
 DEVICE="Redmi note 10 pro"
-DEFCONFIG="sweet_defconfig"
+DEFCONFIG="sweet.config"
 AnyKernel="https://github.com/RooGhz720/Anykernel3"
 AnyKernelbranch="sweetAOSP"
 HOSST="MyLabs"
