@@ -36,9 +36,6 @@ echo -e "$green << setup dirs >> \n $white"
 
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
- 
-# MIUI = High Dimens
-# OSS = Low Dimens
 
 export CHATID API_BOT TYPE_KERNEL
 
@@ -46,7 +43,8 @@ export CHATID API_BOT TYPE_KERNEL
 TYPE="[AOSP]"
 KERNEL_NAME="AGHISNA"
 DEVICE="Redmi note 10 pro"
-DEFCONFIG="sweet.config"
+DEFCONFIG="sdmsteppe-perf_defconfig"
+DEFCONFIG_devices="sweet.config"
 AnyKernel="https://github.com/RooGhz720/Anykernel3"
 AnyKernelbranch="sweetAOSP"
 HOSST="MyLabs"
@@ -145,6 +143,7 @@ mkdir -p out
 
 make O=out clean && make O=out mrproper
 make "$DEFCONFIG" O=out
+make "$DEFCONFIG_devices" 0=out
 
 echo -e "$yellow << compiling the kernel >> \n $white"
 
