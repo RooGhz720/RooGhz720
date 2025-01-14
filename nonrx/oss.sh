@@ -43,8 +43,7 @@ export CHATID API_BOT TYPE_KERNEL
 TYPE="[AOSP]"
 KERNEL_NAME="AGHISNA"
 DEVICE="Redmi note 10 pro"
-DEFCONFIG_RIG="vendor/sdmsteppe-perf_defconfig"
-DEFCONFIG_DEVICES="vendor/sweet.config"
+DEFCONFIG_FILES="vendor/sweet_defconfig"
 AnyKernel="https://github.com/RooGhz720/Anykernel3"
 AnyKernelbranch="sweetAOSP"
 HOSST="MyLabs"
@@ -143,8 +142,7 @@ export KBUILD_BUILD_VERSION="$ID"
 mkdir -p out
 
 make O=out clean && make O=out mrproper
-make "$DEFCONFIG_RIG" O=out
-make "$DEFCONFIG_DEVICES" 0=out
+make "$DEFCONFIG_FILES" O=out
 
 echo -e "$yellow << compiling the kernel >> \n $white"
 
@@ -155,7 +153,7 @@ KERVER=$(make kernelversion)
 KOMIT=$(git log --pretty=format:'"%h : %s"' -1)
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
-export IMG="$MY_DIR"/out/arch/arm64/boot/Image.gz-dtb
+export IMG="$MY_DIR"/out/arch/arm64/boot/Image.gz
 export dtbo="$MY_DIR"/out/arch/arm64/boot/dtbo.img
 export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
 
