@@ -43,8 +43,8 @@ export CHATID API_BOT TYPE_KERNEL
 TYPE="[AOSP]"
 KERNEL_NAME="AGHISNA"
 DEVICE="Redmi note 10 pro"
-DEFCONFIG="vendor/sdmsteppe-perf_defconfig"
-DEFCONFIG_devices="vendor/sweet.config"
+DEFCONFIG_RIG="vendor/sdmsteppe-perf_defconfig"
+DEFCONFIG_DEVICES="vendor/sweet.config"
 AnyKernel="https://github.com/RooGhz720/Anykernel3"
 AnyKernelbranch="sweetAOSP"
 HOSST="MyLabs"
@@ -122,6 +122,7 @@ Start=$(date +"%s")
                               OBJDUMP=llvm-objdump \
                               STRIP=llvm-strip \
                               CC=clang \
+                              CLANG_TRIPLE=aarch64-linux-gnu- \
                               CROSS_COMPILE=aarch64-linux-gnu- \
                               CROSS_COMPILE_ARM32=arm-linux-gnueabi-  2>&1 | tee error.log
 
@@ -142,8 +143,8 @@ export KBUILD_BUILD_VERSION="$ID"
 mkdir -p out
 
 make O=out clean && make O=out mrproper
-make "$DEFCONFIG" O=out
-make "$DEFCONFIG_devices" 0=out
+make "$DEFCONFIG_RIG" O=out
+make "$DEFCONFIG_DEVICES" 0=out
 
 echo -e "$yellow << compiling the kernel >> \n $white"
 
