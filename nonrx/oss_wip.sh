@@ -41,7 +41,7 @@ export CHATID API_BOT TYPE_KERNEL
 
 # Kernel build config
 TYPE="[AOSP]"
-KERNEL_NAME="AGHISNA"
+KERNEL_NAME="AGHISNA_RC"
 DEVICE="Redmi note 10 pro"
 DEFCONFIG_FILES="vendor/sweet_defconfig"
 AnyKernel="https://github.com/RooGhz720/Anykernel3"
@@ -59,7 +59,7 @@ BRANCH="clang-20.0"
 
 # setup telegram env
 export WAKTU=$(date +"%T")
-export TGL=$(date +"%d-%m-%Y")
+export TGL=$(date +"%d%m%Y")
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
 export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
 
