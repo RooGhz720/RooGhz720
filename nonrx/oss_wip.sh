@@ -36,29 +36,26 @@ echo -e "$green << setup dirs >> \n $white"
 
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
- 
-# MIUI = High Dimens
-# OSS = Low Dimens
 
 export CHATID API_BOT TYPE_KERNEL
 
 # Kernel build config
-TYPE="OSS-BQ"
-KERNEL_NAME="AGHISNA-WIP"
+TYPE="[AOSP]"
+KERNEL_NAME="AGHISNA"
 DEVICE="Redmi note 10 pro"
-DEFCONFIG="sweet_defconfig"
+DEFCONFIG_FILES="vendor/sweet_defconfig"
 AnyKernel="https://github.com/RooGhz720/Anykernel3"
-AnyKernelbranch="master"
+AnyKernelbranch="sweetAOSP"
 HOSST="MyLabs"
 USEER="aghisna"
-ID="25"
+ID="1"
 MESIN="Git Workflows"
 
 # clang config
 REMOTE="https://gitlab.com"
-TARGET="GhostMaster69-dev"
-REPO="cosmic-clang"
-BRANCH="master"
+TARGET="kutemeikito"
+REPO="rastamod69-clang"
+BRANCH="clang-20.0"
 
 # setup telegram env
 export WAKTU=$(date +"%T")
@@ -124,6 +121,7 @@ Start=$(date +"%s")
                               OBJDUMP=llvm-objdump \
                               STRIP=llvm-strip \
                               CC=clang \
+                              CLANG_TRIPLE=aarch64-linux-gnu- \
                               CROSS_COMPILE=aarch64-linux-gnu- \
                               CROSS_COMPILE_ARM32=arm-linux-gnueabi-  2>&1 | tee error.log
 
@@ -144,19 +142,18 @@ export KBUILD_BUILD_VERSION="$ID"
 mkdir -p out
 
 make O=out clean && make O=out mrproper
-make "$DEFCONFIG" O=out
+make "$DEFCONFIG_FILES" O=out
 
 echo -e "$yellow << compiling the kernel >> \n $white"
 
-build_kernel || error=false
+build_kernel || error=true
 
 DATE=$(date +"%Y%m%d-%H%M%S")
 KERVER=$(make kernelversion)
 KOMIT=$(git log --pretty=format:'"%h : %s"' -1)
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
-ls $MY_DIR/out/arch/arm64/boot
-export IMG="$MY_DIR"/out/arch/arm64/boot/Image.gz-dtb
+export IMG="$MY_DIR"/out/arch/arm64/boot/Image.gz
 export dtbo="$MY_DIR"/out/arch/arm64/boot/dtbo.img
 export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
 
@@ -196,7 +193,7 @@ TEXT1="
                 cp -r "$dtbo" zip/
                 cp -r "$dtb" zip/
                 cd zip
-                mv dtbo.img mie-kuah
+                # mv dtbo.img mie-kuah
                 export ZIP="$KERNEL_NAME"-"$TYPE"-"$TGL"
                 zip -r9 "$ZIP" * -x .git README.md LICENSE *placeholder
                 curl -sLo zipsigner-3.0.jar https://github.com/Magisk-Modules-Repo/zipsigner/raw/master/bin/zipsigner-3.0-dexed.jar
