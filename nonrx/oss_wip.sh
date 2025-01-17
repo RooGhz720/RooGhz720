@@ -99,7 +99,7 @@ tg_error() {
 # clang stuff
 		echo -e "$green << cloning clang >> \n $white"
 		# git clone --depth=1 -b "$BRANCH" "$REMOTE"/"$TARGET"/"$REPO" "$HOME"/clang
-		wget "$(curl -s https://raw.githubusercontent.com/XSans0/WeebX-Clang/main/main/link.txt)" -O "$HOME/clang/weebx-clang.tar.gz" && \
+		wget "https://github.com/XSans0/WeebX-Clang/releases/download/WeebX-Clang-20.0.0git-release/WeebX-Clang-20.0.0git.tar.gz" -O "$HOME/clang/weebx-clang.tar.gz" && \
 		tar -xvf "$HOME/clang/weebx-clang.tar.gz" -C "$HOME/clang" && \
 		rm -rf "$HOME/clang/weebx-clang.tar.gz"
 		# git clone --depth=1 -b lineage-19.1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9.git "$HOME"/clang/aarch64-linux-android-4.9
