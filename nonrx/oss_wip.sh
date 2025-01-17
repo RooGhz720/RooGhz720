@@ -53,9 +53,9 @@ MESIN="Git Workflows"
 
 # clang config
 REMOTE="https://gitlab.com"
-TARGET="RooGhz720"
-REPO="clang19"
-BRANCH="main"
+TARGET="clangsantoni"
+REPO="zyc_clang"
+BRANCH="18"
 
 # setup telegram env
 export WAKTU=$(date +"%T")
