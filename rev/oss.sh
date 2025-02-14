@@ -43,8 +43,7 @@ export CHATID API_BOT TYPE_KERNEL
 TYPE="[STABLE]"
 KERNEL_NAME="AGHISNA-prjkt"
 DEVICE="Redmi note 10 pro"
-DEFCONFIG_SDM="vendor/sdmsteppe-perf_defconfig"
-DEFCONFIG_FILES="vendor/sweet.config"
+DEFCONFIG_FILES="sweet_defconfig"
 AnyKernel="https://github.com/RooGhz720/Anykernel3"
 AnyKernelbranch="sweetAOSP"
 HOSST="MyLabs"
@@ -143,7 +142,6 @@ export KBUILD_BUILD_VERSION="$ID"
 mkdir -p out
 
 make O=out clean && make O=out mrproper
-make "$DEFCONFIG_SDM" 0=out
 make "$DEFCONFIG_FILES" O=out
 
 echo -e "$yellow << compiling the kernel >> \n $white"
