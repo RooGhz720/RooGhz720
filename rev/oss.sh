@@ -144,6 +144,11 @@ mkdir -p out
 make O=out clean && make O=out mrproper
 make "$DEFCONFIG_FILES" O=out
 
+echo -e "$yellow << patching KPM before build >> \n $white"
+
+chmod +x patch_kpm.sh
+./patch_kpm.sh --download
+
 echo -e "$yellow << compiling the kernel >> \n $white"
 
 build_kernel || error=true
