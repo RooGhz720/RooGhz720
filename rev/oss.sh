@@ -131,6 +131,8 @@ Diff=$(($End - $Start))
 
 # Let's start
 echo -e "$green << doing pre-compilation process >> \n $white"
+TZ='Asia/Jakarta'
+export TZ
 export ARCH=arm64
 export SUBARCH=arm64
 export HEADER_ARCH=arm64
