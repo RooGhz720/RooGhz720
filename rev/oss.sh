@@ -130,6 +130,10 @@ Diff=$(($End - $Start))
 }
 
 # Let's start
+echo -e "$green << setting ccache 10GB >> \n $white"
+export CCACHE_DIR="$MY_DIR/.ccache"
+ccache -M 10G
+
 echo -e "$green << doing pre-compilation process >> \n $white"
 TZ='Asia/Jakarta'
 export TZ
